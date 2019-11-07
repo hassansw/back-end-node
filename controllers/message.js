@@ -11,7 +11,7 @@ module.exports = {
 	post: function (request, response) {
 		const { username, password, age } = request.body
 
-		if (!parseInt(age)) {
+		if (age && !parseInt(age)) {
 			response.send({
 				header: {
 					code: -1,
@@ -37,6 +37,13 @@ module.exports = {
 			})
 		} else {
 			response.status(404)
+			response.send({
+				header: {
+					code: -1,
+					message: 'invalid request'
+				},
+				body: {}
+			})
 		}
 	}
 }
