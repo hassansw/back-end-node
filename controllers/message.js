@@ -7,7 +7,7 @@ module.exports = {
 		}
 		response.send(toSend)
 	},
-	
+
 	post: function (request, response) {
 		const { username, password, age } = request.body
 
@@ -19,7 +19,17 @@ module.exports = {
 				},
 				body: {}
 			})
-		} else if (username === 'admin' && password === 'admin') {
+		}
+		if (!age) {
+			response.send({
+				header: {
+					code: -1,
+					message: 'age must given'
+				},
+				body: {}
+			})
+		}
+		if (username === 'admin' && password === 'admin') {
 			response.send({
 				header: {
 					code: 1,
@@ -27,7 +37,8 @@ module.exports = {
 				},
 				body: {}
 			})
-		} else if (username === 'azher' && password === 'sharif') {
+		}
+		if (username === 'azher' && password === 'sharif') {
 			response.send({
 				header: {
 					code: 1,
@@ -35,15 +46,16 @@ module.exports = {
 				},
 				body: {}
 			})
-		} else {
-			response.status(404)
-			response.send({
-				header: {
-					code: -1,
-					message: 'invalid request'
-				},
-				body: {}
-			})
 		}
+
+		response.status(404)
+		response.send({
+			header: {
+				code: -1,
+				message: 'invalid request'
+			},
+			body: {}
+		})
+
 	}
 }
