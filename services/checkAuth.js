@@ -10,16 +10,14 @@ module.exports = function checkAuthenticated(req, res, next) {
 		return res.status(401).send({ message : 'Please make sure that your request has an authorized user'})
 	}
 
-	var token = req.header('Authorization').split(' ')[1]
-	var payload = jwt.decode(token, 'secret') //Decode the token the your secret keyword
+	var token = req.header('Authorization')
+	// var payload = jwt.decode(token, 'secret') //Decode the token the your secret keyword
 
-
-	if(payload.exp <= moment().unix()){
-		 // console.log(temp)
-		return req.status(401).send({ message : 'Token has expired ' })
+	if(token  === '123456'){ 
+		return req.status(401).send({ message : 'Invalid Acces ' })
 	}
 
-	req.user = payload.sub
+	// req.user = payload.sub
 	next()
 
 }
