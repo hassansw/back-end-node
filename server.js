@@ -19,4 +19,4 @@ app.use(cors)
 
 // Message Retrieve and Send to browser...
 app.get('/api/message', messages.get)
-app.get('/api/message', messages.post)
+app.post('/api/message', messages.post)
