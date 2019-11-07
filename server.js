@@ -16,7 +16,6 @@ app.use(bodyParser.json()) // Specifying the type of data to send and recieve :f
 app.use(cors)
 
 // Controller
-// Message post: save messages to MongoDB Database
-// app.post('/api/message', message.post)
+
 // Message Retrieve and Send to browser...
-app.get('/api/message', messages.get) // Retrieve data from MongoDB using getMessages() : function
+app.get('/api/message', messages.get)
