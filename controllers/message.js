@@ -12,7 +12,7 @@ module.exports = {
 		const { username, password, age } = request.body
 
 		if (!parseInt(age)) {
-			res.send({
+			response.send({
 				header: {
 					code: -1,
 					message: 'age must be a number'
@@ -20,7 +20,7 @@ module.exports = {
 				body: {}
 			})
 		} else if (username === 'admin' && password === 'admin') {
-			res.send({
+			response.send({
 				header: {
 					code: 1,
 					message: 'admin logged in successfully'
@@ -28,7 +28,7 @@ module.exports = {
 				body: {}
 			})
 		} else if (username === 'azher' && password === 'sharif') {
-			res.send({
+			response.send({
 				header: {
 					code: 1,
 					message: 'Azher Sharif logged in successfully'
@@ -36,7 +36,7 @@ module.exports = {
 				body: {}
 			})
 		} else {
-			res.status(404)
+			response.status(404)
 		}
 	}
 }
