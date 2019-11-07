@@ -7,7 +7,7 @@ var cors = require('./services/cors')
 var messages = require('./controllers/message')
 
 // Attempt to connect to server...
-var server = app.listen(process.env.PORT, function () {
+var server = app.listen(3000, function () {
 	console.log('Server Launched ', server.address().port)
 })
 

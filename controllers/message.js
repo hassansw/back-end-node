@@ -7,7 +7,7 @@ module.exports = {
 		}
 		response.send(toSend)
 	},
-
+	
 	post: function (request, response) {
 		const { username, password, age } = request.body
 
